@@ -1,0 +1,48 @@
+@use '../../../styles/variables.scss'as var;
+
+$COLOR_LINE: var.$orange;
+
+
+.ham {
+    width: 100%;
+    cursor: pointer;
+    transition: transform .4s ease-in-out;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    path {
+        fill: none;
+        transition: stroke-dasharray .4s linear, stroke-dashoffset .4s linear;
+        stroke: $COLOR_LINE;
+        stroke-width: 10;
+        stroke-linecap: round;
+    }
+
+    .top {
+        stroke-dasharray: 40 172;
+    }
+
+    .middle {
+        stroke-dasharray: 40 111;
+    }
+
+    .bottom {
+        stroke-dasharray: 40 172;
+    }
+}
+
+.active {
+    .top {
+        stroke-dashoffset: -132px;
+    }
+
+    .middle {
+        stroke-dashoffset: -71px;
+    }
+
+    .bottom {
+        stroke-dashoffset: -132px;
+    }
+}

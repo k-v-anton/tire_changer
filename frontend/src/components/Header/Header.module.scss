@@ -1,0 +1,23 @@
+@use '../../styles/variables.scss' as var;
+
+$HEIGHT_HEADER_PC: 5em;
+$COLOR_BG: var.$darck-gray;
+$INDENT: 1em;
+
+.header {
+  height: $HEIGHT_HEADER_PC;
+  width: 100%;
+}
+
+.container {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $COLOR_BG;
+  padding: 0 $INDENT;
+  height: $HEIGHT_HEADER_PC;
+}

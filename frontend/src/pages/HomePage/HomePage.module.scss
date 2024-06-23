@@ -1,0 +1,10 @@
+.homePage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100dvh - 5em);
+}
+
+.canvas {
+  background-color: rgb(97, 97, 97);
+}

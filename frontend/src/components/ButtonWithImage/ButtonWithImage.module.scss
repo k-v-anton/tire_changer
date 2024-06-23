@@ -1,0 +1,23 @@
+@use '../../styles/variables.scss' as var;
+
+$BORDER: var.$border-secondary;
+$RADIUS: 1em;
+$INDENT: .5em;
+$COLOR: var.$orange;
+$COLOR_ACTIVE: var.$white;
+$COLOR_BG_ACTIVE: var.$orange;
+
+.buttonWithImage {
+  border: $BORDER;
+  border-radius: $RADIUS;
+  padding: $INDENT;
+  color: $COLOR;
+}
+
+.image {}
+
+.description {}
+
+.active {
+  background-color: $COLOR_BG_ACTIVE;
+}

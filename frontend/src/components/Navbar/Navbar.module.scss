@@ -1,0 +1,30 @@
+@use '../../styles/variables.scss' as var;
+$COLOR_BG: var.$black;
+
+.navbar {
+  position: fixed;
+  top: 5em;
+  left: 0;
+  width: 100%;
+  height: calc(100dvh - 5em);
+  background-color: rgba($COLOR_BG, .7);
+  transform: translate(100%, 0);
+  transition: transform .5s ease-in-out;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.active {
+  transform: translate(0, 0);
+}
+
+.container {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+
+}

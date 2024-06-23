@@ -1,0 +1,30 @@
+
+
+.priceCard {
+  border-radius: 1em;
+  box-shadow: 0 0 .5em .15em teal;
+  padding: 1em;
+  display: flex;
+  gap: 1.5em;
+  flex-direction: column;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: 900;
+  color: orangered;
+  text-align: center;
+}
+
+.containerPrice {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+
+}
+
+.itemContainer {
+
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,26 @@
+@use '../../../styles/variables.scss' as var;
+
+$COLOR_BORDER: var.$white;
+$BORDER: .2em solid $COLOR_BORDER;
+$COLOR_SHADOW: var.$orange;
+$SHADOW_HOVER: 0 0 8px 1px $COLOR_SHADOW;
+$SIZE_LOGO_MAX: 12em;
+$TRANSITIPN_TIME: .5s;
+$RADIUS_LOGO: 1em;
+$TRANSITION_FUNCTION: ease-in-out;
+
+.logo {
+  aspect-ratio: 3/1;
+  max-width: $SIZE_LOGO_MAX;
+  border-radius: $RADIUS_LOGO;
+  border: $BORDER;
+  transition: box-shadow $TRANSITIPN_TIME $TRANSITION_FUNCTION;
+
+  &:hover {
+    box-shadow: $SHADOW_HOVER;
+  }
+}
+
+.image {
+  width: 100%;
+}

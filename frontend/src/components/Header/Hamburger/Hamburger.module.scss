@@ -1,0 +1,20 @@
+@use '../../../styles/variables.scss' as var;
+
+$COLOR_BACKGROUND: var.$white;
+$COLOR_SHADOW: var.$orange;
+$SHADOW_HOVER: 0 0 8px 1px $COLOR_SHADOW;
+$SIZE_BUTTON: 3em;
+$TRANSITIPN_TIME: .5s;
+$TRANSITION_FUNCTION: ease-in-out;
+
+.hamburger {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  width: $SIZE_BUTTON;
+  background-color: $COLOR_BACKGROUND;
+  transition: box-shadow $TRANSITIPN_TIME $TRANSITION_FUNCTION;
+
+  &:hover {
+    box-shadow: $SHADOW_HOVER;
+  }
+}

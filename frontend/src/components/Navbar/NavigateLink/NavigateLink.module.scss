@@ -1,0 +1,37 @@
+@use '../../../styles/variables.scss' as var;
+
+$COLOR: var.$white;
+$COLOR_ACTIVE: var.$orange;
+$TRANSITION_TIME: var.$transition-time;
+$TRANSITION_FUNCTION: var.$trandition-function;
+$BORDER: var.$border-primary;
+$BORDER_ACTIVE: var.$border-secondary;
+$WIDTH_LINK: 15em;
+$INDENT: .25em;
+$RADIUS: 2em;
+$SHADOW_HOVER: var.$shadow-hover;
+
+.navigateLink {
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  color: $COLOR;
+  width: $WIDTH_LINK;
+  padding: $INDENT;
+  border: $BORDER;
+  border-radius: $RADIUS;
+  transition:
+    color $TRANSITION_TIME $TRANSITION_FUNCTION,
+    box-shadow $TRANSITION_TIME $TRANSITION_FUNCTION,
+    border $TRANSITION_TIME $TRANSITION_FUNCTION;
+
+  &:hover {
+    box-shadow: $SHADOW_HOVER;
+  }
+}
+
+.active {
+  color: $COLOR_ACTIVE;
+  border: $BORDER_ACTIVE;
+}
