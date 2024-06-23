@@ -1,8 +1,18 @@
 import { Suspense, lazy } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
-import { LayoutPage } from '../Layouts/LayoutPage'
 import { Loading } from '../components/Loading'
-import { HomePage } from '../pages/HomePage'
+import { SkiletonPage } from '../skiletons/SkiletonPage'
+
+const LazyLayoutPage = lazy(() =>
+  import('../Layouts/LayoutPage').then(({ LayoutPage }) => ({
+    default: LayoutPage,
+  }))
+)
+const LazyHomePage = lazy(() =>
+  import('../pages/HomePage').then(({ HomePage }) => ({
+    default: HomePage,
+  }))
+)
 
 const LazyPricePage = lazy(() =>
   import('../pages/PricePage').then(({ PricePage }) => ({ default: PricePage }))
@@ -15,7 +25,11 @@ const LazyErrorPage = lazy(() =>
 export const routerPages = createBrowserRouter([
   {
     path: '/',
-    element: <LayoutPage />,
+    element: (
+      <Suspense fallback={<Loading />}>
+        <LazyLayoutPage />
+      </Suspense>
+    ),
     errorElement: (
       <Suspense fallback={<Loading />}>
         <LazyErrorPage />
@@ -24,13 +38,17 @@ export const routerPages = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <HomePage />,
+        element: (
+          <Suspense fallback={<SkiletonPage />}>
+            <LazyHomePage />
+          </Suspense>
+        ),
       },
 
       {
         path: '/price',
         element: (
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<SkiletonPage />}>
             <LazyPricePage />
           </Suspense>
         ),

@@ -4,7 +4,6 @@ import styles from './NavigateLink.module.scss'
 
 export const NavigateLink = (props: NavigateLinkProps) => {
   const { path, name } = props
-  console.log(path, name)
 
   const setActive: SetActiveType = ({ isActive }) => {
     return isActive

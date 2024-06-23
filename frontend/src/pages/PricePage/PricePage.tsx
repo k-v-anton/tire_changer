@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { ButtonWithImage } from '../../components/ButtonWithImage'
-import { Loading } from '../../components/Loading'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import dopoptions from '../../images/carsTypes/dop.png'
 import minibus from '../../images/carsTypes/minibus.png'
 import passangers from '../../images/carsTypes/passangers.png'
 import suv from '../../images/carsTypes/sav.png'
+import { SkiletonPrice } from '../../skiletons/SkiletonPrice'
 import { fetchPrice } from '../../store/slices/priceSlice'
 import { PriceCard } from './PriceCard'
 import styles from './PricePage.module.scss'
@@ -56,30 +56,33 @@ export const PricePage = () => {
     dispatch(fetchPrice(dataNavigate[activeTypeCar - 1].path))
   }, [dispatch, activeTypeCar])
 
+
   return (
     <div className={styles.pricePage}>
       <div className={styles.navigate}>
-        {dataNavigate.map((btn) => (
-          <ButtonWithImage
-            key={btn.id}
-            active={activeTypeCar}
-            {...btn}
-            handleClick={handleClickNewPrice}
-          />
-        ))}
+        <div className={styles.navContainer}>
+          {dataNavigate.map((btn) => (
+            <ButtonWithImage
+              key={btn.id}
+              active={activeTypeCar}
+              {...btn}
+              handleClick={handleClickNewPrice}
+            />
+          ))}
+        </div>
       </div>
 
-      {isLoading && <Loading />}
-      {error && <p>{error}</p>}
-      {!isLoading && !error && (
-        <div className={styles.price}>
-          {!error &&
-            !isLoading &&
-            priceList.map(({ _id, ...element }) => (
-              <PriceCard key={_id} data={element} />
+      <div className={styles.content}>
+        {isLoading && <SkiletonPrice />}
+        {error && <p>{error}</p>}
+        {!isLoading&& !error && priceList.length && (
+          <div className={styles.price}>
+            {priceList.map(({ _id, ...element }, index: number) => (
+              <PriceCard key={_id} data={element} index={index} />
             ))}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   )
 }

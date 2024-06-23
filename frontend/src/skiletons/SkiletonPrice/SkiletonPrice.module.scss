@@ -1,0 +1,78 @@
+@use '../../styles/variables.scss' as var;
+
+$COLOR_BG_CARD_FIRST: var.$light-gray;
+$COLOR_BG_CARD_SECOND: var.$gray;
+$SHADOW: var.$shadow-hover-primary;
+
+@mixin line($width, $height) {
+  width: $width;
+  height: $height;
+  position: relative;
+
+  overflow: hidden;
+
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+    height: 100%;
+    animation: go 2s linear infinite;
+    background: linear-gradient(to left, $COLOR_BG_CARD_FIRST, $COLOR_BG_CARD_SECOND, $COLOR_BG_CARD_FIRST);
+  }
+
+  &:first-child {
+    margin-bottom: 1em;
+  }
+}
+
+.skiletonPrice {
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+  max-width: 1200px;
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+.item {
+  padding: 1em;
+  width: 100%;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  background-color: $COLOR_BG_CARD_SECOND;
+
+}
+
+.titleLine {
+  @include line(15em, 2em)
+}
+
+.line {
+  @include line(100%, 1em)
+}
+
+@keyframes go {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-75%, 0);
+  }
+}

@@ -7,6 +7,7 @@ $INDENT: 1em;
 .header {
   height: $HEIGHT_HEADER_PC;
   width: 100%;
+  z-index: 10;
 }
 
 .container {

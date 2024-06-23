@@ -1,0 +1,72 @@
+@use '../../styles/variables.scss' as var;
+
+$COLOR_BG_CARD_FIRST: var.$light-gray;
+$COLOR_BG_CARD_SECOND: var.$gray;
+$SHADOW: var.$shadow-hover-primary;
+
+@mixin line($width, $height) {
+  width: $width;
+  height: $height;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+    height: 100%;
+    animation: go 2s linear infinite;
+    background: linear-gradient(to left, $COLOR_BG_CARD_FIRST, $COLOR_BG_CARD_SECOND, $COLOR_BG_CARD_FIRST);
+  }
+}
+
+@keyframes go {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-75%, 0);
+  }
+}
+
+.skiletonPage {
+  height: calc(100dvh - 5em);
+  width: 100%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.itemMain {
+  background-color: var.$darck-gray;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+.item {
+  background-color: var.$light-gray;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em
+}
+
+.header {
+  @include line(50%, 3em)
+}
+
+.subHeader {
+  @include line(70%, 1em)
+}
+
+.line {
+  @include line(100%, 1em);
+}

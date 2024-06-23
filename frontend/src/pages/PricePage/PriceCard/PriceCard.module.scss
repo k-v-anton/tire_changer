@@ -1,30 +1,52 @@
+@use '../../../styles/variables.scss' as var;
 
+$COLOR_TEXT: var.$black;
+$COLOR_TITLE: var.$orange;
+$COLOR_BG: var.$light-gray;
+$SHADOW: 0 0 8px 1px var.$darck-gray;
 
 .priceCard {
   border-radius: 1em;
-  box-shadow: 0 0 .5em .15em teal;
+  box-shadow: $SHADOW;
   padding: 1em;
   display: flex;
   gap: 1.5em;
   flex-direction: column;
+  opacity: 0;
+  animation: showCard 1s linear forwards;
+  background-color: $COLOR_BG;
 }
 
 .title {
   text-transform: uppercase;
   font-weight: 900;
-  color: orangered;
+  font-size: 2em;
+  color: $COLOR_TITLE;
   text-align: center;
+}
+
+.text {
+  font-weight: 700;
+  color: $COLOR_TEXT;
 }
 
 .containerPrice {
   display: flex;
   flex-direction: column;
   gap: .5em;
-
 }
 
 .itemContainer {
-
   display: flex;
   justify-content: space-between;
+}
+
+@keyframes showCard {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
